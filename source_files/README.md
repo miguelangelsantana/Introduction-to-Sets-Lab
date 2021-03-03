@@ -30,13 +30,6 @@ Let's start with a pretty conceptual example. Let's consider the following sets:
 <img src="./images/venn_diagr.png" width="600">
 
 
-
-```python
-
-# You can find the solution here:
-# https://github.com/learn-co-curriculum/dsc-intro-to-sets-lab/blob/curriculum/images/Venn_diagr_solution.png
-```
-
 #### b. Using your Venn Diagram, list the elements in each of the following sets:
 
 - $ A \cap B$
@@ -50,19 +43,6 @@ Let's start with a pretty conceptual example. Let's consider the following sets:
 - $(C \cap A) \cup (C \backslash B)$
 
 
-```python
-
-# $ A \cap B = {8}$
-# $ A \cup C = {2,3,4,6,8,9,10, 11}$
-# $A^c = {1,3,5,8,7,9,11,12}$
-# $(A \cup B)^c = {1,5,7,9} $
-# $B \cap C' = {12}$
-# $A\backslash B = {2,4,6,10}$
-# $C \backslash (B \backslash A) ={2,6,8,9} $
-# $(C \cap A) \cup (C \backslash B) = {2,6,8,9}$
-```
-
-
         
         
 #### c. For the remainder of this exercise, let's  create sets A, B and C and universal set U in Python and test out the results you came up with. Sets are easy to create in Python. For a guide to the syntax, follow some of the documentation [here](https://www.w3schools.com/python/python_sets.asp)
@@ -70,29 +50,29 @@ Let's start with a pretty conceptual example. Let's consider the following sets:
 
 ```python
 # Create set A
-A = set([2,4,6,8,10])
-'Type A: {}, A: {}'.format(type(A), A)
+A = None
+'Type A: {}, A: {}'.format(type(A), A) # "Type A: <class 'set'>, A: {2, 4, 6, 8, 10}"
 ```
 
 
 ```python
 # Create set B
-B = set([3,8,11,12])
-'Type B: {}, B: {}'.format(type(B), B)
+B = None
+'Type B: {}, B: {}'.format(type(B), B) # "Type B: <class 'set'>, B: {8, 11, 3, 12}"
 ```
 
 
 ```python
 # Create set C
-C = set([2,3,6,8,9,11])
-'Type C: {}, C: {}'.format(type(C), C)
+C = None
+'Type C: {}, C: {}'.format(type(C), C) # "Type C: <class 'set'>, C: {2, 3, 6, 8, 9, 11}"
 ```
 
 
 ```python
 # Create universal set U
-U = set([1,2,3,4,5,6,7,8,9,10,11,12])
-'Type U: {}, U: {}'.format(type(U), U)
+U = None
+'Type U: {}, U: {}'.format(type(U), U) # "Type U: <class 'set'>, U: {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}"
 ```
 
 Now, verify your answers in section 1 by using the correct methods in Python. To provide a little bit of help, you can find a table with common operations on sets below.
@@ -110,64 +90,64 @@ Now, verify your answers in section 1 by using the correct methods in Python. To
 
 
 ```python
-A_inters_B =  A & B
-A_inters_B
+A_inters_B =  None
+A_inters_B # {8}
 ```
 
 #### 2. $ A \cup C $
 
 
 ```python
-A_union_C = A | C
-A_union_C
+A_union_C = None
+A_union_C # {2, 3, 4, 6, 8, 9, 10, 11}
 ```
 
 #### 3.  $A^c$ (you'll have to be a little creative here!)
 
 
 ```python
-A_comp = U.difference(A) # or A_comp = U-A
-A_comp
+A_comp = None
+A_comp # {1, 3, 5, 7, 9, 11, 12}
 ```
 
 #### 4.  $(A \cup B)^c $
 
 
 ```python
-A_union_B_comp = U - (A | B) 
-A_union_B_comp
+A_union_B_comp = None
+A_union_B_comp # {1, 5, 7, 9}
 ```
 
 #### 5. $B \cap C' $
 
 
 ```python
-B_inters_C_comp = B & (U-C)
-B_inters_C_comp
+B_inters_C_comp = None
+B_inters_C_comp # {12}
 ```
 
 #### 6. $A\backslash B$
 
 
 ```python
-compl_of_B = A-B
-compl_of_B
+compl_of_B = None
+compl_of_B # {2, 4, 6, 10}
 ```
 
 #### 7. $C \backslash (B \backslash A) $
 
 
 ```python
-C_compl_B_compl_A= C-(B-A)
-C_compl_B_compl_A
+C_compl_B_compl_A = None
+C_compl_B_compl_A # {2, 6, 8, 9}
 ```
 
 #### 8.  $(C \cap A) \cup (C \backslash B)$
 
 
 ```python
-C_inters_A_union_C_min_B= (C&A)|(C-B)
-C_inters_A_union_C_min_B
+C_inters_A_union_C_min_B= None
+C_inters_A_union_C_min_B # {2, 6, 8, 9}
 ```
 
 ## The Inclusion Exclusion Principle
@@ -193,19 +173,19 @@ What you'll do is translate the left hand side of the equation for the inclusion
 
 
 ```python
-left_hand_eq = len(A | B | C)
-print(left_hand_eq)  # 9
+left_hand_eq = None
+print(left_hand_eq)  # 9 elements in the set
 ```
 
 
 ```python
-right_hand_eq = len(A)+len(B)+len(C)- len(A&B)-len(A&C)-len(B&C)+len(A&B&C)
-print(right_hand_eq) # 9
+right_hand_eq = None
+print(right_hand_eq) # 9 elements in the set
 ```
 
 
 ```python
-left_hand_eq == right_hand_eq # needs to say "True"
+None # Use a comparison operator to compare `left_hand_eq` and `right_hand_eq`. Needs to say "True".
 ```
 
 ## Set Operations in Python
@@ -237,7 +217,7 @@ Sadly, Eve's turtle passed away last week. Let's update her pet list accordingly
 
 
 ```python
-Eve.remove("Turtle")
+None
 Eve # should be {'Rabbit', 'Goldfish'}
 ```
 
@@ -245,7 +225,7 @@ This time around, Nina promised to take care of Mary's pets while she's away. Bu
 
 
 ```python
-Nina.update(Mary)
+None
 Nina # {'Chicken', 'Horse', 'Chinchilla', 'Parrot', 'Rabbit', 'Donkey', 'Dog', 'Cat', 'Goldfish'}
 ```
 
@@ -253,7 +233,7 @@ Mary, on the other hand, wants to clear her list altogether while away:
 
 
 ```python
-Mary.clear()
+None
 Mary  # set()
 ```
 
@@ -261,7 +241,7 @@ Look at how many species Nina is taking care of right now.
 
 
 ```python
-n_species_Nina = len(Nina)
+None
 n_species_Nina # 9
 ```
 
@@ -269,7 +249,7 @@ Taking care of this many pets is weighing heavily on Nina. She remembered Eve ha
 
 
 ```python
-Nina.difference_update(Eve)
+None
 Nina # 7
 ```
 
@@ -297,34 +277,6 @@ e. Write down the interpretation and give all possible outcomes for the sets den
  - II. $C \cap D$, 
  - III. $C \cup D$. 
 
-
-```python
-# a. Solution: $A = {(L,L,L); (S,S,S); (R,R,R)}$
-
-# b. Solution: $B = {(L,R,S); (L,S,R); (R,L,S); (R,S,L); (S,L,R); (S,R,L)}$
-
-# c. Solution: $C= {(L,R,R); (R,L,R); (R,R,L); (S,R,R); (R,S,R); (R,R,S)}$
-
-# d. Solution: $D = {(L,R,R); (R,L,R); (R,R,L); (S,R,R); (R,S,R); (R,R,S);\ 
- #(L,S,S); (S,L,S); (S,S,L); (R,S,S); (S,R,S); (S,S,R); \ (S,L,L); (L,S,L);
- #(L,L,S); (R,L,L); (L,R,L); (L,L,R)}$
-
-#e.
-
-# I. $D'$: all cars go in a different direction, or all go in the same direction. 
-# $D' = {(L,R,S); (L,S,R); (R,L,S); (R,S,L); (S,L,R); (S,R,L); (L,L,L); (S,S,S); (R,R,R)}$
-
-# II. The intersection between 2 cars go right, and 2 cars go in the same direction. 
-# As C is a subset of D, this boils down to C again, 
-# so $C \cap D = C = {(L,R,R); (R,L,R); (R,R,L); (S,R,R); (R,S,R); (R,R,S)} $
-
-# III. The union between 2 cars go right, and 2 cars go in the same direction. 
-# So the set we end up with is the set of 2 cars going in the same direction, 
-# which boils down to D again. $C \cup D = D = {(L,R,R); (R,L,R); (R,R,L); (S,R,R); 
-# (R,S,R); (R,R,S);\ (L,S,S); (S,L,S); (S,S,L); (R,S,S); (S,R,S); (S,S,R);\ (S,L,L); 
-# (L,S,L); (L,L,S); (R,L,L); (L,R,L); (L,L,R)}$
-```
-
 ## Optional Exercise: European Countries
 
 Use set operations to determine which European countries are not in the European Union. You just might have to clean the data first with pandas.
@@ -337,29 +289,18 @@ import pandas as pd
 europe = pd.read_excel('Europe_and_EU.xlsx', sheet_name = 'Europe') 
 eu = pd.read_excel('Europe_and_EU.xlsx', sheet_name = 'EU')
 
-#Remove any whitespace from names
-europe.Country = europe.Country.map(lambda x: x.strip()) 
-eu.Country = eu.Country.map(lambda x: x.strip()) #Remove any whitespace from names
+#Use pandas to remove any whitespace from names
 ```
 
 
 ```python
 europe.head(3) #preview dataframe
-```
-
-
-```python
 eu.head(3)
 ```
 
 
 ```python
-set(eu.Country) < set(europe.Country)
-```
-
-
-```python
-set(europe.Country) - set(eu.Country)
+# Your code comes here
 ```
 
 ## Summary
